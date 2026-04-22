@@ -1,16 +1,15 @@
-using Soenneker.Tests.FixturedUnit;
-using Xunit;
+using Soenneker.Tests.HostedUnit;
 
 namespace Soenneker.Neon.Runners.OpenApiClient.Tests;
 
-[Collection("Collection")]
-public sealed class NeonOpenApiClientRunnerTests : FixturedUnitTest
+[ClassDataSource<Host>(Shared = SharedType.PerTestSession)]
+public sealed class NeonOpenApiClientRunnerTests : HostedUnitTest
 {
-    public NeonOpenApiClientRunnerTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
+    public NeonOpenApiClientRunnerTests(Host host) : base(host)
     {
     }
 
-    [Fact]
+    [Test]
     public void Default()
     {
 
